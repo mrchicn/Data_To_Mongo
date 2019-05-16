@@ -85,13 +85,10 @@ public class Write_to_mongo {
         //todo  认证
         MongoCredential credential = MongoCredential.createScramSha1Credential(MONGO_USERNAME, MONGO_DB_NAME, MONGO_PASSWORD.toCharArray());
 
-
-
         //todo 通过连接认证获取MongoDB连接   需要一个List  和一个   MongoCredential
         MongoClient mongoClient = new MongoClient(addrs, Collections.singletonList(credential));
 
         MongoDatabase db = mongoClient.getDatabase(MONGO_DB_NAME);
-
 
         return db.getCollection(MONGO_COLLECTION_NAME);
     }
